@@ -1,4 +1,4 @@
-var list = [
+let list = [
     {
         "desc": "rice",
         "amount": "1",
@@ -18,18 +18,35 @@ var list = [
 
 
 function getTotal(list){
-    var total = 0;
-    for(var key in list){
-        total += list[key].value * list[key].amount;
+    let total = 0;
+    for(let [keys, key] of Object.entries(list)){
+        total += key.value * key.amount;
     }
-
-    document.getElementById("totalValue").innerHTML = formatValue(total);
+    document.getElementById("totalValue").innerHTML = Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(total);
 }
 
 function setList(list){
-    var table = '<thead><tr><td>Description</td><td>Amount</td><td>Value</td><td>Action</td></tr></thead><tbody>';
-    for (var key in list) {
-        table += '<tr><td>'+ formatDesc(list[key].desc) +'</td><td>'+ formatAmount(list[key].amount) +'</td><td>'+ formatValue(list[key].value) +'</td><td><button class="btn btn-success" onClick="setUpdate('+ key +')">Edit</button> | <button class="btn btn-danger" onClick="deleteData('+ key +')">Delete</button></td></tr>';
+    let table = `
+        <thead>
+            <tr>
+                <td>Description</td>
+                <td>Amount</td>
+                <td>Value</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>`;
+
+    for (let [keys, key] of Object.entries(list)) {
+        table += `
+            <tr>
+                <td> ${formatDesc(key.desc)}</td>
+                <td> ${formatAmount(key.amount)}</td>
+                <td>${Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(key.value)}</td>
+                <td><button class="btn btn-success" onClick="setUpdate(${keys})">Edit</button> 
+                | 
+                <button class="btn btn-danger" onClick="deleteData(${keys})">Delete</button></td>
+            </tr>`;
     }
     table += '</tbody>';
     document.getElementById("listTable").innerHTML = table;    
@@ -38,15 +55,8 @@ function setList(list){
 }
 
 function formatDesc(desc) {
-    var str = desc.toLowerCase();
+    let str = desc.toLowerCase();
     str = str.charAt(0).toUpperCase() + str.slice(1);
-    return str;
-}
-
-function formatValue(value) {
-    var str = parseFloat(value).toFixed(2) + "";
-    str = str.replace(".", ", ");
-    str = "R$ " + str;
     return str;
 }
 
@@ -58,14 +68,14 @@ function addData(){
     if(validation()){
         return;
     }
-    var desc = document.getElementById("desc").value;
-    var amount = document.getElementById("amount").value;
-    var value = document.getElementById("value").value;
+    let desc = document.getElementById("desc").value;
+    let amount = document.getElementById("amount").value;
+    let value = document.getElementById("value").value;
 
     list.unshift({
-        "desc": desc,
-        "amount": amount,
-        "value": value
+        desc,
+        amount,
+        value
     });
     setList(list); 
     resetForm();
@@ -73,7 +83,7 @@ function addData(){
 }
 
 function setUpdate(id){
-    var obj = list[id];
+    let obj = list[id];
     document.getElementById("desc").value = obj.desc;
     document.getElementById("amount").value = obj.amount;
     document.getElementById("value").value = obj.value;
@@ -103,10 +113,10 @@ function updateData() {
         return;
     }
 
-    var id = document.getElementById("idUpdate").value;
-    var desc = document.getElementById("desc").value;
-    var amount = document.getElementById("amount").value;
-    var value = document.getElementById("value").value;
+    let id = document.getElementById("idUpdate").value;
+    let desc = document.getElementById("desc").value;
+    let amount = document.getElementById("amount").value;
+    let value = document.getElementById("value").value;
 
     list[id] = {
         "desc": desc,
@@ -135,10 +145,10 @@ function deleteData(id){
 
 function validation(){
     document.getElementById("errors").style.display = "none";
-    var desc = document.getElementById("desc").value;
-    var amount = document.getElementById("amount").value;
-    var value = document.getElementById("value").value;
-    var errors = "";
+    let desc = document.getElementById("desc").value;
+    let amount = document.getElementById("amount").value;
+    let value = document.getElementById("value").value;
+    let errors = "";
 
     if(desc === ""){
         errors += '<p>Fill out description</p>';
@@ -180,12 +190,12 @@ function deleteList(){
 }
 
 function saveListStorage(list){
-    var jsonStr = JSON.stringify(list);
+    let jsonStr = JSON.stringify(list);
     localStorage.setItem("list", jsonStr);
 }
 
 function initListStorage(){
-    var testList = localStorage.getItem("list");
+    let testList = localStorage.getItem("list");
     if(testList){
         list = JSON.parse(testList);
     }

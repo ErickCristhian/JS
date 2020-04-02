@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a id="navTitle" class="navbar-brand" href="#"></a>
+    </nav>
+
+    <div class="container-fluid">
+        
+        <div class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" id="desc" placeholder="Description">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="amount" placeholder="Amount">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="value" placeholder="Value">
+            </div>
+            <span id="btnUpdate" style="display: none">
+                <span id="inputIDUpdate"></span>
+                <button onClick="updateData()" class="btn btn-info">Save</button>
+                <button onClick="resetForm()" class="btn btn-danger">Cancel</button>
+            </span>
+
+            <span id="btnAdd" >
+                <button onClick="addData()" class="btn btn-success">Add</button>
+                <button onClick="resetForm()" class="btn btn-danger">Reset</button>
+                <button onClick="deleteList()" class="btn btn-success">Delete List</button>
+            </span>
+            
+        </div>
+
+        <div id="errors" style="display: none;"></div>
+
+        <table id="listTable" class="table">
+        </table>
+    </div>
+
+    <nav class="navbar navbar-default fixed-bottom">
+        <div class="container">
+            <h4 class="text-center text-success">
+                    Total: <span class="font-weight-bold" id="totalValue">R$ 0,00</span>
+            </h4>
+        </div>
+    </nav>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

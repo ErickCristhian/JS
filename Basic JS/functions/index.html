@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function funcName (name = 'World') {
+            console.log('Hello '+ name +' from school of net');
+            
+        }
+        funcName();
+        function fatorial(num) {
+            if (num == 1){
+                return 1;
+            } else {
+                return num * fatorial(num - 1);
+            }
+        }
+        let result = fatorial(3);
+        console.log(result);
+    </script>
+</body>
+</html>

@@ -5,10 +5,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 //import Todolist from './components/TodolistOLD';
 import TodoListApp from './container/TodoListApp';
 import * as serviceWorker from './serviceWorker';
+import WeatherApp from './container/WeatherApp';
 
 ReactDOM.render(
   <React.StrictMode>
-    <TodoListApp />
+    <WeatherApp />
   </React.StrictMode>,
   document.getElementById('root')
 );

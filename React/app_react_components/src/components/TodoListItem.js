@@ -8,7 +8,7 @@ export default function TodoListItem(props) {
     
     return (
         <li className="list-group-item">
-            {item}
+            {item.title}
             <button type="button" className="btn btn-danger" onClick={onRemove}>X</button>
         </li>
     );

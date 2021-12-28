@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  --bg: #C4C4C4;
+  --bg-secondary: #FFFFFF;
+  --bg-panel: #2f2f2f;
+  --color-headings: #4ECB71;
+  --color-text: #333333;
+}
+body {
+  background-color: var(--bg);
+}
+
+
+button {
+  border-color: chartreuse;
+  border-radius: 7px;
+  height: 2em;
+  background: none;
+  transition: all 0.5s;
+}
+
+button:hover {
+  background-color: chartreuse;
+  color: white;
+  transform: scale(1.1)
+}
+
+span {
+  color: var(--color-text);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text)
+}
+
+p, address, label, button {
+  color: var(--color-text);
+  font-size: 1.1em;
+  line-height: 1.8em;
+}
+
+#description {
+  height: 500px;
+  background-color: var(--bg);
+}
+
+#text-description {
+  background-color: var(--bg-secondary);
+}
+
+
+.content-all img {
+  width: 40vw;
+  height: 40vh;
+  object-fit: cover;
+}
+
+#products {
+  background-color: var(--bg-secondary);
+}

@@ -1,0 +1,50 @@
+header {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    justify-content: space-between;
+    height: 100px;
+    width: 100%;
+    background-color: var(--bg-panel);
+}
+
+header h1 {
+    color: #f3f3f3;
+    text-shadow: 1px 3px 1px #000;
+}
+
+
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+label.switch {
+    width: 52px;
+    height: 27px;
+    background: grey;
+    float: right;
+    text-indent: -9000px;
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+}
+label.switch::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+input:checked + label.switch {
+    background-color: #4ECB71;
+}
+
+input:checked + label.switch::after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}

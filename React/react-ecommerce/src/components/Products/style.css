@@ -1,0 +1,28 @@
+.shelf-items {
+    background-color: #FFFFFF;
+    height: 450px;
+    border-radius: 20px;
+    box-shadow: 3px 2px 10px rgba(0,0,0,0.25);
+    width: 30vw;
+}
+.shelf-item {
+    max-height: 400px;
+}
+
+.shelf-items div img  {
+    object-fit: cover;
+    transform: scale(0.85);
+    transition: all 0.5s;
+}
+.shelf-items div p, .shelf-items div span, .shelf-items div button {
+    color: #000;
+} 
+.shelf-items img:hover {
+    transform: scale(1);
+}
+
+.shelf-action button {
+    width: 378px;
+    height: 35px;
+    border-radius: 50px;
+}
